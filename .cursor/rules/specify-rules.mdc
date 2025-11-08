@@ -1,0 +1,29 @@
+# blog Development Guidelines
+
+Auto-generated from all feature plans. Last updated: 2025-11-08
+
+## Active Technologies
+
+- TypeScript/JavaScript (ES2020+) + Vite (build tool), Tailwind CSS (styling), ShadCN UI (components), markdown parser (e.g., marked, remark, or markdown-it) (001-blog-app)
+
+## Project Structure
+
+```text
+src/
+tests/
+```
+
+## Commands
+
+npm test && npm run lint
+
+## Code Style
+
+TypeScript/JavaScript (ES2020+): Follow standard conventions
+
+## Recent Changes
+
+- 001-blog-app: Added TypeScript/JavaScript (ES2020+) + Vite (build tool), Tailwind CSS (styling), ShadCN UI (components), markdown parser (e.g., marked, remark, or markdown-it)
+
+<!-- MANUAL ADDITIONS START -->
+<!-- MANUAL ADDITIONS END -->
