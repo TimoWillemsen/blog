@@ -2,6 +2,123 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Theme CSS Variables - Light Theme (default) */
+:root[data-theme="light"],
+:root:not([data-theme]) {
+  --color-bg: #faf9f7;
+  --color-surface: #ffffff;
+  --color-text-primary: #2d2d2d;
+  --color-text-secondary: #6b6b6b;
+  --color-accent: #8b7355;
+  --color-border: #e8e6e3;
+  --color-header-bg: #faf9f7;
+  --color-header-text: #2d2d2d;
+  --color-header-border: #e8e6e3;
+  --color-code-bg: #2d2d2d;
+  --color-code-text: #faf9f7;
+  --color-code-inline-bg: #f5f3f0;
+  --color-code-inline-text: #8b7355;
+  --color-tag-bg: #f5f3f0;
+  --color-tag-text: #8b7355;
+  --color-tag-hover: #e8e6e3;
+  --color-hover-bg: #f5f3f0;
+  --color-hover-border: #d4c4b0;
+}
+
+/* Theme CSS Variables - Dark Theme */
+:root[data-theme="dark"] {
+  --color-bg: #1a1a1a;
+  --color-surface: #2d2d2d;
+  --color-text-primary: #faf9f7;
+  --color-text-secondary: #8b8b8b;
+  --color-accent: #d4a574;
+  --color-border: #3d3d3d;
+  --color-header-bg: #1a1a1a;
+  --color-header-text: #faf9f7;
+  --color-header-border: #3d3d3d;
+  --color-code-bg: #2d2d2d;
+  --color-code-text: #faf9f7;
+  --color-code-inline-bg: #3d3d3d;
+  --color-code-inline-text: #d4a574;
+  --color-tag-bg: #3d3d3d;
+  --color-tag-text: #d4a574;
+  --color-tag-hover: #4d4d4d;
+  --color-hover-bg: #2d2d2d;
+  --color-hover-border: #4d4d4d;
+}
+
+/* Seasonal Decorations - Based on current month, not theme */
+
+/* Halloween Decorations - October (month 9) */
+body[data-season="halloween"]::before {
+  content: '🦇';
+  position: fixed;
+  top: 100px;
+  right: 5%;
+  font-size: 40px;
+  z-index: 999;
+  pointer-events: none;
+  opacity: 0.7;
+  animation: fly-bat 8s ease-in-out infinite;
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+body[data-season="halloween"]::after {
+  content: '🦇 🦇';
+  position: fixed;
+  bottom: 120px;
+  left: 3%;
+  font-size: 35px;
+  z-index: 999;
+  pointer-events: none;
+  opacity: 0.6;
+  animation: fly-bat 10s ease-in-out infinite reverse;
+  letter-spacing: 50px;
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+@keyframes fly-bat {
+  0%, 100% { transform: translateX(0) translateY(0) rotate(0deg); }
+  25% { transform: translateX(80px) translateY(-40px) rotate(20deg); }
+  50% { transform: translateX(160px) translateY(0) rotate(0deg); }
+  75% { transform: translateX(80px) translateY(40px) rotate(-20deg); }
+}
+
+/* Christmas Decorations - December (month 11) */
+body[data-season="christmas"]::before {
+  content: '❄ ❅ ❆ ❄ ❅ ❆ ❄ ❅ ❆';
+  position: fixed;
+  top: 60px;
+  left: -200px;
+  font-size: 24px;
+  color: rgba(200, 220, 255, 0.8);
+  z-index: 999;
+  pointer-events: none;
+  animation: snowflakes 15s linear infinite;
+  white-space: nowrap;
+  letter-spacing: 150px;
+}
+
+body[data-season="christmas"]::after {
+  content: '❄ ❅ ❆ ❄ ❅ ❆ ❄ ❅ ❆';
+  position: fixed;
+  top: 200px;
+  left: -300px;
+  font-size: 20px;
+  color: rgba(200, 220, 255, 0.6);
+  z-index: 999;
+  pointer-events: none;
+  animation: snowflakes 20s linear infinite;
+  white-space: nowrap;
+  letter-spacing: 120px;
+  animation-delay: -5s;
+}
+
+@keyframes snowflakes {
+  0% { transform: translateX(0) translateY(0); }
+  100% { transform: translateX(calc(100vw + 400px)) translateY(300px); }
+}
+
 /* Prism.js syntax highlighting - only apply to code blocks with language classes */
 /* Import Prism.js theme but scope it to language-* classes only */
 @import 'prismjs/themes/prism-dark.css';
@@ -136,11 +253,12 @@
   margin-bottom: 1.5em;
   line-height: 1.75;
   font-size: 16px;
-  color: #2d2d2d;
+  color: var(--color-text-primary);
 }
 
 .prose h1, .prose h2, .prose h3 {
-  @apply font-semibold text-[#2d2d2d];
+  @apply font-semibold;
+  color: var(--color-text-primary);
 }
 
 .prose h1 {
@@ -162,24 +280,30 @@
 }
 
 .prose code {
-  @apply bg-[#f5f3f0] text-[#8b7355] px-1.5 py-0.5 rounded text-sm font-mono;
+  background-color: var(--color-code-inline-bg);
+  color: var(--color-code-inline-text);
+  @apply px-1.5 py-0.5 rounded text-sm font-mono;
   font-size: 0.9em;
 }
 
 .prose pre {
-  @apply bg-[#2d2d2d] text-[#faf9f7] rounded p-4 overflow-x-auto my-6;
+  background-color: var(--color-code-bg);
+  color: var(--color-code-text);
+  @apply rounded p-4 overflow-x-auto my-6;
   font-size: 14px;
   line-height: 1.6;
 }
 
 .prose pre code {
-  @apply bg-transparent text-[#faf9f7] p-0;
+  @apply bg-transparent p-0;
+  color: var(--color-code-text);
   font-size: 14px;
 }
 
 .prose blockquote {
-  border-left: 3px solid #d4c4b0;
-  @apply pl-5 italic text-[#6b6b6b] my-6;
+  border-left: 3px solid var(--color-border);
+  @apply pl-5 italic my-6;
+  color: var(--color-text-secondary);
   font-size: 15px;
   line-height: 1.7;
 }
@@ -205,7 +329,7 @@
 }
 
 .prose a {
-  @apply text-[#8b7355];
+  color: var(--color-accent);
   font-weight: 500;
 }
 
@@ -214,11 +338,13 @@
 }
 
 .prose strong {
-  @apply font-semibold text-[#2d2d2d];
+  @apply font-semibold;
+  color: var(--color-text-primary);
 }
 
 .prose hr {
-  @apply border-t border-[#e8e6e3] my-8;
+  @apply border-t my-8;
+  border-color: var(--color-border);
 }
 
 .prose table {
@@ -228,11 +354,13 @@
 
 .prose table th,
 .prose table td {
-  @apply border border-[#e8e6e3] px-4 py-2 text-left;
+  @apply border px-4 py-2 text-left;
+  border-color: var(--color-border);
 }
 
 .prose table th {
-  @apply bg-[#f5f3f0] font-semibold;
+  @apply font-semibold;
+  background-color: var(--color-surface);
 }
 
 .prose img {

@@ -30,16 +30,34 @@ export function TagList({ tags, activeTag, onTagClick, className }: TagListProps
             key={`${tag}-${index}`}
             type="button"
             onClick={() => onTagClick?.(tag)}
-            className={`
-              px-2 py-1 text-xs rounded
-              border transition-colors
-              focus:outline-none focus:ring-2 focus:ring-[#8b7355] focus:ring-offset-1
-              ${
-                isActive
-                  ? 'bg-[#8b7355] text-white border-[#8b7355]'
-                  : 'bg-transparent text-[#6b6b6b] border-[#d4c4b0] hover:bg-[#f5f3f0] hover:border-[#8b7355]'
+            className="px-2 py-1 text-xs rounded border transition-colors focus:outline-none focus:ring-2 focus:ring-offset-1"
+            style={
+              isActive
+                ? {
+                    backgroundColor: 'var(--color-accent)',
+                    color: 'white',
+                    borderColor: 'var(--color-accent)',
+                    '--tw-ring-color': 'var(--color-accent)',
+                  } as React.CSSProperties & { '--tw-ring-color': string }
+                : {
+                    backgroundColor: 'transparent',
+                    color: 'var(--color-tag-text)',
+                    borderColor: 'var(--color-border)',
+                    '--tw-ring-color': 'var(--color-accent)',
+                  } as React.CSSProperties & { '--tw-ring-color': string }
+            }
+            onMouseEnter={(e) => {
+              if (!isActive) {
+                e.currentTarget.style.backgroundColor = 'var(--color-tag-hover)'
+                e.currentTarget.style.borderColor = 'var(--color-accent)'
               }
-            `}
+            }}
+            onMouseLeave={(e) => {
+              if (!isActive) {
+                e.currentTarget.style.backgroundColor = 'transparent'
+                e.currentTarget.style.borderColor = 'var(--color-border)'
+              }
+            }}
             aria-label={`Tag: ${tag}`}
             aria-current={isActive ? 'true' : undefined}
           >
