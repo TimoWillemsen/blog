@@ -84,7 +84,7 @@ temp/
 *.sqlite3
 
 # Package manager files
-package-lock.json
+# package-lock.json - committed for reproducible builds
 yarn.lock
 pnpm-lock.yaml
 poetry.lock
