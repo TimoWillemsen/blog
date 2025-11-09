@@ -72,14 +72,14 @@ export function PostDetail({ post, loading, error, onBack, onTagClick, activeTag
         Back
       </Link>
 
-      <header className="mb-6 pb-4 border-b border-[#e8e6e3]">
+      <header className="mb-8 pb-6 border-b border-[#e8e6e3]">
         <h1 
           id="post-detail-title"
-          className="text-2xl font-semibold text-[#2d2d2d] mb-3 leading-tight"
+          className="text-2xl font-semibold text-[#2d2d2d] mb-4 leading-tight tracking-tight"
         >
           {post.title}
         </h1>
-        <div className="flex flex-wrap items-center gap-2 text-xs text-[#6b6b6b]" role="contentinfo">
+        <div className="flex flex-wrap items-center gap-2 text-sm text-[#6b6b6b] font-medium mb-4" role="contentinfo">
           <time 
             dateTime={post.publicationDate.toISOString()}
             aria-label={`Published on ${formattedDate}`}
@@ -88,13 +88,13 @@ export function PostDetail({ post, loading, error, onBack, onTagClick, activeTag
           </time>
           {post.author && (
             <>
-              <span aria-hidden="true">•</span>
+              <span aria-hidden="true" className="text-[#d4c4b0]">•</span>
               <span>{post.author}</span>
             </>
           )}
         </div>
         {post.tags && post.tags.length > 0 && (
-          <div className="mt-3">
+          <div className="mt-4">
             <TagList tags={post.tags} onTagClick={onTagClick} activeTag={activeTag} />
           </div>
         )}
@@ -105,19 +105,19 @@ export function PostDetail({ post, loading, error, onBack, onTagClick, activeTag
       </div>
 
       {relatedPosts && relatedPosts.length > 0 && (
-        <section className="mt-12 pt-8 border-t border-[#e8e6e3]">
-          <h2 className="text-lg font-semibold text-[#2d2d2d] mb-4">Related Articles</h2>
-          <div className="space-y-4">
+        <section className="mt-16 pt-8 border-t border-[#e8e6e3]">
+          <h2 className="text-xl font-semibold text-[#2d2d2d] mb-6 tracking-tight">Related Articles</h2>
+          <div className="space-y-5">
             {relatedPosts.map((relatedPost) => (
-              <article key={relatedPost.id} className="border-b border-[#e8e6e3] pb-4 last:border-b-0">
+              <article key={relatedPost.id} className="border-b border-[#e8e6e3] pb-5 last:border-b-0 group">
                 <Link
                   to={`/${relatedPost.slug}`}
-                  className="block focus:outline-none focus:ring-2 focus:ring-[#8b7355] focus:ring-offset-2 rounded"
+                  className="block focus:outline-none focus:ring-2 focus:ring-[#8b7355] focus:ring-offset-2 rounded-lg -mx-2 px-2 py-1 transition-all hover:bg-[#f5f3f0]"
                 >
-                  <h3 className="text-base font-medium text-[#2d2d2d] hover:text-[#1a1a1a] transition-colors mb-1.5">
+                  <h3 className="text-lg font-semibold text-[#2d2d2d] group-hover:text-[#1a1a1a] transition-colors mb-2 leading-tight">
                     {relatedPost.title}
                   </h3>
-                  <div className="flex items-center gap-2 text-xs text-[#6b6b6b] mb-2">
+                  <div className="flex items-center gap-2 text-xs text-[#6b6b6b] mb-2 font-medium">
                     <time dateTime={relatedPost.publicationDate.toISOString()}>
                       {new Date(relatedPost.publicationDate).toLocaleDateString('en-US', {
                         year: 'numeric',
@@ -127,7 +127,7 @@ export function PostDetail({ post, loading, error, onBack, onTagClick, activeTag
                     </time>
                     {relatedPost.author && (
                       <>
-                        <span aria-hidden="true">•</span>
+                        <span aria-hidden="true" className="text-[#d4c4b0]">•</span>
                         <span>{relatedPost.author}</span>
                       </>
                     )}

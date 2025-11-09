@@ -27,8 +27,8 @@ export function AboutPage() {
 
   if (loading) {
     return (
-      <div className="py-8">
-        <p className="text-[#6b6b6b]">Loading...</p>
+      <div className="py-8 text-center">
+        <p className="text-[#6b6b6b] text-sm">Loading...</p>
       </div>
     )
   }
@@ -36,8 +36,8 @@ export function AboutPage() {
   if (error) {
     return (
       <div className="py-8">
-        <h1 className="text-2xl font-bold mb-4 text-[#2d2d2d]">Error</h1>
-        <p className="text-[#6b6b6b]">{error}</p>
+        <h1 className="text-3xl font-semibold mb-4 text-[#2d2d2d] tracking-tight">Error</h1>
+        <p className="text-[#6b6b6b] text-sm">{error}</p>
       </div>
     )
   }
@@ -45,16 +45,18 @@ export function AboutPage() {
   if (!aboutPage) {
     return (
       <div className="py-8">
-        <h1 className="text-2xl font-bold mb-4 text-[#2d2d2d]">About page not found</h1>
-        <p className="text-[#6b6b6b]">The about page content could not be loaded.</p>
+        <h1 className="text-3xl font-semibold mb-4 text-[#2d2d2d] tracking-tight">About page not found</h1>
+        <p className="text-[#6b6b6b] text-sm">The about page content could not be loaded.</p>
       </div>
     )
   }
 
   return (
     <div>
-      <h1 className="text-2xl font-bold mb-4 text-[#2d2d2d]">{aboutPage.title}</h1>
-      <MarkdownRenderer content={aboutPage.content} />
+      <h1 className="text-3xl font-semibold mb-6 text-[#2d2d2d] tracking-tight">{aboutPage.title}</h1>
+      <div className="prose max-w-none">
+        <MarkdownRenderer content={aboutPage.content} />
+      </div>
     </div>
   )
 }

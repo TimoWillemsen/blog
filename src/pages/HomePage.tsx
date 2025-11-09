@@ -82,9 +82,6 @@ export function HomePage() {
 
   return (
     <div>
-      <div className="mb-6">
-        <h1 className="text-sm font-medium text-[#6b6b6b] uppercase tracking-wide mb-1">Latest Posts</h1>
-      </div>
       <PostList 
         posts={filteredPosts} 
         loading={loading} 
