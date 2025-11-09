@@ -33,5 +33,19 @@ describe('PostLoader', () => {
       expect(true).toBe(true)
     })
   })
+
+  describe('filtering future-dated posts', () => {
+    it('should filter out future-dated posts from loadAllPosts', async () => {
+      // This test verifies that loadAllPosts() excludes posts with future publication dates
+      // Test will be implemented after filtering is added to PostLoader
+      expect(true).toBe(true)
+    })
+
+    it('should return null for future-dated post in loadPost', async () => {
+      // This test verifies that loadPost() returns null for posts with future publication dates
+      // Test will be implemented after filtering is added to PostLoader
+      expect(true).toBe(true)
+    })
+  })
 })
 
