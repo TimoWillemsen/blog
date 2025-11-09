@@ -127,14 +127,14 @@ body[data-season="christmas"]::after {
 /* This prevents Prism.js from styling plain code blocks without language identifiers */
 .prose pre:not([class*="language-"]) {
   /* Ensure plain code blocks don't get Prism.js highlight background */
-  background: #2d2d2d !important;
-  color: #faf9f7 !important;
+  background-color: var(--color-code-bg) !important;
+  color: var(--color-code-text) !important;
 }
 
 .prose pre:not([class*="language-"]) code {
   /* Plain code blocks should not have Prism.js token styling */
   background: transparent !important;
-  color: #faf9f7 !important;
+  color: var(--color-code-text) !important;
 }
 
 /* Reset any Prism.js token styles on plain code blocks */
@@ -144,13 +144,12 @@ body[data-season="christmas"]::after {
   background: transparent !important;
 }
 
-/* Custom Prism.js theme overrides to complement blog's dark theme */
-/* Base colors: background #2d2d2d, text #faf9f7 */
+/* Custom Prism.js theme overrides to complement blog themes */
 /* Only apply to code blocks WITH language classes */
 .prose pre[class*="language-"],
 .prose code[class*="language-"] {
-  background: #2d2d2d !important;
-  color: #faf9f7 !important;
+  background-color: var(--color-code-bg) !important;
+  color: var(--color-code-text) !important;
 }
 
 /* Token colors - ensure WCAG AA contrast on dark background */
@@ -211,20 +210,24 @@ body[data-season="christmas"]::after {
 
 /* Ensure code blocks maintain existing styling */
 .prose pre[class*="language-"] {
-  @apply bg-[#2d2d2d] text-[#faf9f7] rounded p-4 overflow-x-auto my-6;
+  background-color: var(--color-code-bg) !important;
+  color: var(--color-code-text) !important;
+  @apply rounded p-4 overflow-x-auto my-6;
   font-size: 14px;
   line-height: 1.6;
 }
 
 .prose pre[class*="language-"] code {
-  @apply bg-transparent text-[#faf9f7] p-0;
+  @apply bg-transparent p-0;
+  color: var(--color-code-text) !important;
   font-size: 14px;
-  color: inherit;
 }
 
 /* Ensure inline code styling is preserved (not affected by Prism.js) */
 .prose code:not([class*="language-"]) {
-  @apply bg-[#f5f3f0] text-[#8b7355] px-1.5 py-0.5 rounded text-sm font-mono;
+  background-color: var(--color-code-inline-bg) !important;
+  color: var(--color-code-inline-text) !important;
+  @apply px-1.5 py-0.5 rounded text-sm font-mono;
   font-size: 0.9em;
 }
 
@@ -311,6 +314,7 @@ body[data-season="christmas"]::after {
 .prose ul, .prose ol {
   @apply space-y-2 my-5;
   padding-left: 1.5em;
+  color: var(--color-text-primary);
 }
 
 .prose li {
@@ -318,6 +322,7 @@ body[data-season="christmas"]::after {
   margin-bottom: 0.5em;
   font-size: 15px;
   line-height: 1.8;
+  color: var(--color-text-primary);
 }
 
 .prose ul li {
