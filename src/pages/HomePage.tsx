@@ -27,7 +27,7 @@ export function HomePage() {
 
     // Set up file watching in development mode
     if (import.meta.env.DEV) {
-      watchCleanupRef.current = postLoader.watchForChanges((updatedPosts) => {
+      watchCleanupRef.current = postLoader.watchForChanges((updatedPosts: BlogPost[]) => {
         setPosts(updatedPosts)
       })
     }

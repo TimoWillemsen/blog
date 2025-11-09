@@ -1,7 +1,6 @@
 import { parseFrontmatter } from './frontmatter'
 import { renderMarkdown } from './renderer'
 import { sanitizeHtml } from './sanitizer'
-import type { MarkdownFile } from './types'
 
 /**
  * MarkdownParser service interface

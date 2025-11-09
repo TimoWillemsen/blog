@@ -5,13 +5,12 @@ interface PostListProps {
   posts: BlogPost[]
   loading?: boolean
   error?: string | null
-  onPostClick?: (post: BlogPost) => void
 }
 
 /**
  * Display a list of blog posts on the homepage
  */
-export function PostList({ posts, loading, error, onPostClick }: PostListProps) {
+export function PostList({ posts, loading, error }: PostListProps) {
   if (loading) {
     return (
       <div className="text-center py-8">

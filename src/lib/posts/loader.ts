@@ -6,12 +6,19 @@ import { handleError } from '../errors/handlers'
 import { sortPostsByDate } from './sorter'
 
 /**
+ * PostLoader service interface
+ */
+export interface PostLoader {
+  loadAllPosts(): Promise<BlogPost[]>
+  loadPost(slug: string): Promise<BlogPost | null>
+  watchForChanges(callback: (posts: BlogPost[]) => void): () => void
+}
+
+/**
  * PostLoader service implementation
  * Loads markdown files and converts them to BlogPost entities
  */
 class PostLoaderImpl implements PostLoader {
-  private postsCache: BlogPost[] | null = null
-
   async loadAllPosts(): Promise<BlogPost[]> {
     try {
       // In browser environment, we need to use import.meta.glob to load markdown files
@@ -105,15 +112,15 @@ class PostLoaderImpl implements PostLoader {
           posts.push(post)
         } catch (error) {
           // Enhanced error handling for malformed markdown files
+          const fileError = path.split('/').pop() || path
           handleError(error, `Failed to load post from ${path}`)
-          console.error(`Skipping file ${filename} due to error:`, error)
+          console.error(`Skipping file ${fileError} due to error:`, error)
           // Continue processing other files
         }
       }
 
       // Sort by publication date (newest first)
       const sortedPosts = sortPostsByDate(posts, 'desc')
-      this.postsCache = sortedPosts
       return sortedPosts
     } catch (error) {
       handleError(error, 'loadAllPosts')
@@ -162,6 +169,3 @@ class PostLoaderImpl implements PostLoader {
 
 // Export singleton instance
 export const postLoader: PostLoader = new PostLoaderImpl()
-
-// Export the interface
-export type { PostLoader }
