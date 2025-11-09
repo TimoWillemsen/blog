@@ -10,14 +10,24 @@ export function Layout({ children }: LayoutProps) {
     <div className="min-h-screen bg-[#faf9f7]">
       <header className="bg-[#faf9f7] border-b border-[#e8e6e3] sticky top-0 z-10" role="banner">
         <div className="max-w-3xl mx-auto px-4 py-3">
-          <Link to="/" className="block group">
-            <h1 className="text-lg font-semibold text-[#2d2d2d] group-hover:text-[#1a1a1a] transition-colors">
-              Timo Willemsen
-            </h1>
-            <p className="text-xs text-[#6b6b6b] mt-0.5">
-              Engineering Management & AI-Driven Productivity
-            </p>
-          </Link>
+          <div className="flex items-center justify-between">
+            <Link to="/" className="block group">
+              <h1 className="text-lg font-semibold text-[#2d2d2d] group-hover:text-[#1a1a1a] transition-colors">
+                Timo Willemsen
+              </h1>
+              <p className="text-xs text-[#6b6b6b] mt-0.5">
+                Engineering Management & AI-Driven Productivity
+              </p>
+            </Link>
+            <nav>
+              <Link 
+                to="/about" 
+                className="text-sm text-[#6b6b6b] hover:text-[#2d2d2d] transition-colors"
+              >
+                About
+              </Link>
+            </nav>
+          </div>
         </div>
       </header>
       <main className="max-w-3xl mx-auto px-4 py-6" role="main">

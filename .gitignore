@@ -59,6 +59,7 @@ out/
 .nuxt/
 .cache/
 .turbo/
+.vite/
 *.tsbuildinfo
 
 # Testing
