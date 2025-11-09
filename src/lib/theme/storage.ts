@@ -11,7 +11,7 @@ const STORAGE_KEY = 'blog-theme'
 /**
  * Valid theme identifiers
  */
-const VALID_THEMES: readonly Theme[] = ['light', 'dark', 'christmas', 'halloween'] as const
+const VALID_THEMES: readonly Theme[] = ['light', 'dark'] as const
 
 /**
  * Check if localStorage is available
