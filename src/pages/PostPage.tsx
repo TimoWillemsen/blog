@@ -1,12 +1,15 @@
-import { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useEffect, useState, useMemo } from 'react'
+import { useParams, useNavigate } from 'react-router-dom'
 import { PostDetail } from '../components/post/PostDetail'
 import { postLoader } from '../lib/posts/loader'
 import type { BlogPost } from '../lib/posts/types'
+import { findRelatedPosts } from '../lib/posts/relatedPosts'
 
 export function PostPage() {
   const { slug } = useParams<{ slug: string }>()
+  const navigate = useNavigate()
   const [post, setPost] = useState<BlogPost | null>(null)
+  const [allPosts, setAllPosts] = useState<BlogPost[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
 
@@ -21,6 +24,12 @@ export function PostPage() {
       try {
         setLoading(true)
         setError(null)
+        
+        // Load all posts for related posts calculation
+        const loadedAllPosts = await postLoader.loadAllPosts()
+        setAllPosts(loadedAllPosts)
+        
+        // Load the specific post
         const loadedPost = await postLoader.loadPost(slug)
         if (!loadedPost) {
           setError('Post not found')
@@ -37,6 +46,19 @@ export function PostPage() {
     loadPost()
   }, [slug])
 
-  return <PostDetail post={post} loading={loading} error={error} />
+  // Calculate related posts
+  const relatedPosts = useMemo(() => {
+    if (!post || allPosts.length === 0) {
+      return []
+    }
+    return findRelatedPosts(post, allPosts, 5)
+  }, [post, allPosts])
+
+  // Handle tag click - navigate to homepage with tag filter
+  const handleTagClick = (tag: string) => {
+    navigate(`/?tag=${encodeURIComponent(tag)}`)
+  }
+
+  return <PostDetail post={post} loading={loading} error={error} relatedPosts={relatedPosts} onTagClick={handleTagClick} />
 }
 

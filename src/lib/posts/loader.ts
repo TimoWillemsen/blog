@@ -5,6 +5,7 @@ import { shouldIgnoreFile } from './scanner'
 import { handleError } from '../errors/handlers'
 import { sortPostsByDate } from './sorter'
 import { filterPublishedPosts } from './filter'
+import { parseTags } from './tagNormalizer'
 
 /**
  * PostLoader service interface
@@ -94,6 +95,11 @@ class PostLoaderImpl implements PostLoader {
             ? excerptValue.trim() 
             : undefined
 
+          // Extract and normalize tags from frontmatter
+          const tags = parseTags(frontmatter.tags)
+          // Only include tags field if there are tags (undefined if empty)
+          const tagsField = tags.length > 0 ? tags : undefined
+
           // Generate slug from title or filename
           const slug = generateSlug(frontmatter.slug as string || title)
 
@@ -106,6 +112,7 @@ class PostLoaderImpl implements PostLoader {
             author,
             slug,
             excerpt,
+            tags: tagsField,
             sourceFile: path,
             metadata: frontmatter,
           }

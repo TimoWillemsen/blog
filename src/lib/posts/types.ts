@@ -11,6 +11,7 @@ export interface BlogPost {
   slug: string
   excerpt?: string
   sourceFile: string
+  tags?: string[]
   metadata?: Record<string, unknown>
 }
 
