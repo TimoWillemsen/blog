@@ -1,6 +1,6 @@
 # Tasks: Hide Future-Dated Blog Posts
 
-**Input**: Design documents from `/specs/001-hide-future-posts/`
+**Input**: Design documents from `/specs/003-hide-future-posts/`
 **Prerequisites**: plan.md (required), spec.md (required for user stories), research.md, data-model.md, contracts/
 
 **Tests**: Tests are included per constitution requirement (TDD mandatory). Tests MUST be written and FAIL before implementation.

@@ -1,6 +1,6 @@
 # Research: Hide Future-Dated Blog Posts
 
-**Feature**: 001-hide-future-posts  
+**Feature**: 003-hide-future-posts  
 **Date**: 2025-01-27
 
 ## Research Questions

@@ -10,6 +10,10 @@ Auto-generated from all feature plans. Last updated: 2025-11-08
 - TypeScript 5.2.2, ES2020 targe + React 18.2.0, React Router DOM 6.20.0, gray-matter 4.0.3, marked 17.0.0 (001-post-tags)
 - Markdown files with frontmatter (no database) (001-post-tags)
 - Markdown files with YAML frontmatter (gray-matter 4.0.3) (001-post-tags)
+- TypeScript 5.2.2, ES2020 targe + React 18.2.0, marked 17.0.0, DOMPurify (to be added) (004-fix-markdown-security)
+- N/A (static markdown files) (004-fix-markdown-security)
+- TypeScript 5.2.2, React 18.2.0 + marked (^17.0.0), prismjs (^1.29.0), @types/prismjs (^1.26.3) (001-syntax-highlighting)
+- N/A (client-side rendering only) (001-syntax-highlighting)
 
 - TypeScript/JavaScript (ES2020+) + Vite (build tool), Tailwind CSS (styling), ShadCN UI (components), markdown parser (e.g., marked, remark, or markdown-it) (001-blog-app)
 
@@ -29,9 +33,9 @@ npm test && npm run lint
 TypeScript/JavaScript (ES2020+): Follow standard conventions
 
 ## Recent Changes
+- 001-syntax-highlighting: Added TypeScript 5.2.2, React 18.2.0 + marked (^17.0.0), prismjs (^1.29.0), @types/prismjs (^1.26.3)
+- 004-fix-markdown-security: Added TypeScript 5.2.2, ES2020 targe + React 18.2.0, marked 17.0.0, DOMPurify (to be added)
 - 001-post-tags: Added TypeScript 5.2.2 + React 18.2.0, React Router DOM 6.20.0, Vite 5.0.8
-- 001-post-tags: Added TypeScript 5.2.2, ES2020 targe + React 18.2.0, React Router DOM 6.20.0, gray-matter 4.0.3, marked 17.0.0
-- 001-hide-future-posts: Added TypeScript 5.2.2 + React 18.2.0, React Router DOM 6.20.0, Vite 5.0.8, gray-matter 4.0.3, marked 17.0.0
 
 
 <!-- MANUAL ADDITIONS START -->

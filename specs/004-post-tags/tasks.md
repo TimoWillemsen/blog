@@ -1,6 +1,6 @@
 # Tasks: Post Tags and Filtering
 
-**Input**: Design documents from `/specs/003-post-tags/`
+**Input**: Design documents from `/specs/004-post-tags/`
 **Prerequisites**: plan.md, spec.md, research.md, data-model.md, contracts/
 
 **Tests**: TDD is mandatory per constitution - all tests must be written before implementation.

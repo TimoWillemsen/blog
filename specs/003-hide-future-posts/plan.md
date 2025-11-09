@@ -1,7 +1,7 @@
 # Implementation Plan: Hide Future-Dated Blog Posts
 
-**Branch**: `001-hide-future-posts` | **Date**: 2025-01-27 | **Spec**: [spec.md](./spec.md)
-**Input**: Feature specification from `/specs/001-hide-future-posts/spec.md`
+**Branch**: `003-hide-future-posts` | **Date**: 2025-01-27 | **Spec**: [spec.md](./spec.md)
+**Input**: Feature specification from `/specs/003-hide-future-posts/spec.md`
 
 **Note**: This template is filled in by the `/speckit.plan` command. See `.specify/templates/commands/plan.md` for the execution workflow.
 
@@ -52,7 +52,7 @@ Filter blog posts with future publication dates from all frontend views. Posts w
 ### Documentation (this feature)
 
 ```text
-specs/001-hide-future-posts/
+specs/003-hide-future-posts/
 ├── plan.md              # This file (/speckit.plan command output)
 ├── research.md          # Phase 0 output (/speckit.plan command)
 ├── data-model.md        # Phase 1 output (/speckit.plan command)

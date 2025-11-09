@@ -1,6 +1,6 @@
 # Feature Specification: Post Tags and Filtering
 
-**Feature Branch**: `003-post-tags`  
+**Feature Branch**: `004-post-tags`  
 **Created**: 2025-01-27  
 **Status**: Draft  
 **Input**: User description: "Add the ability to tag blogposts with different tags, and allow filtering on them so you can easily find related articles."

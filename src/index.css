@@ -2,6 +2,115 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Prism.js syntax highlighting - only apply to code blocks with language classes */
+/* Import Prism.js theme but scope it to language-* classes only */
+@import 'prismjs/themes/prism-dark.css';
+
+/* Override Prism.js default styles to only apply to language-* classes */
+/* This prevents Prism.js from styling plain code blocks without language identifiers */
+.prose pre:not([class*="language-"]) {
+  /* Ensure plain code blocks don't get Prism.js highlight background */
+  background: #2d2d2d !important;
+  color: #faf9f7 !important;
+}
+
+.prose pre:not([class*="language-"]) code {
+  /* Plain code blocks should not have Prism.js token styling */
+  background: transparent !important;
+  color: #faf9f7 !important;
+}
+
+/* Reset any Prism.js token styles on plain code blocks */
+.prose pre:not([class*="language-"]) .token {
+  /* Remove token styling from plain code blocks */
+  color: inherit !important;
+  background: transparent !important;
+}
+
+/* Custom Prism.js theme overrides to complement blog's dark theme */
+/* Base colors: background #2d2d2d, text #faf9f7 */
+/* Only apply to code blocks WITH language classes */
+.prose pre[class*="language-"],
+.prose code[class*="language-"] {
+  background: #2d2d2d !important;
+  color: #faf9f7 !important;
+}
+
+/* Token colors - ensure WCAG AA contrast on dark background */
+.prose .token.comment,
+.prose .token.prolog,
+.prose .token.doctype,
+.prose .token.cdata {
+  color: #8b8b8b; /* Muted gray for comments */
+}
+
+.prose .token.punctuation {
+  color: #d4c4b0; /* Light beige for punctuation */
+}
+
+.prose .token.property,
+.prose .token.tag,
+.prose .token.boolean,
+.prose .token.number,
+.prose .token.constant,
+.prose .token.symbol,
+.prose .token.deleted {
+  color: #d4a574; /* Warm beige for properties/numbers */
+}
+
+.prose .token.selector,
+.prose .token.attr-name,
+.prose .token.string,
+.prose .token.char,
+.prose .token.builtin,
+.prose .token.inserted {
+  color: #a8c98f; /* Soft green for strings */
+}
+
+.prose .token.operator,
+.prose .token.entity,
+.prose .token.url,
+.prose .language-css .token.string,
+.prose .style .token.string {
+  color: #d4c4b0; /* Light beige for operators */
+}
+
+.prose .token.atrule,
+.prose .token.attr-value,
+.prose .token.keyword {
+  color: #c9a8d4; /* Soft purple for keywords */
+}
+
+.prose .token.function,
+.prose .token.class-name {
+  color: #8bb3d4; /* Soft blue for functions */
+}
+
+.prose .token.regex,
+.prose .token.important,
+.prose .token.variable {
+  color: #d4a574; /* Warm beige for regex/variables */
+}
+
+/* Ensure code blocks maintain existing styling */
+.prose pre[class*="language-"] {
+  @apply bg-[#2d2d2d] text-[#faf9f7] rounded p-4 overflow-x-auto my-6;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.prose pre[class*="language-"] code {
+  @apply bg-transparent text-[#faf9f7] p-0;
+  font-size: 14px;
+  color: inherit;
+}
+
+/* Ensure inline code styling is preserved (not affected by Prism.js) */
+.prose code:not([class*="language-"]) {
+  @apply bg-[#f5f3f0] text-[#8b7355] px-1.5 py-0.5 rounded text-sm font-mono;
+  font-size: 0.9em;
+}
+
 /* Custom typography improvements */
 @layer base {
   body {

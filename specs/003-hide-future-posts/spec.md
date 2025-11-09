@@ -1,6 +1,6 @@
 # Feature Specification: Hide Future-Dated Blog Posts
 
-**Feature Branch**: `001-hide-future-posts`  
+**Feature Branch**: `003-hide-future-posts`  
 **Created**: 2025-01-27  
 **Status**: Draft  
 **Input**: User description: "Add a feature that for blogs that have a date in the future that they are not rendered in the frontend."

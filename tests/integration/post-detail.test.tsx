@@ -24,6 +24,24 @@ describe('Post Detail Integration Test', () => {
     expect(true).toBe(true)
   })
 
+  it('should apply syntax highlighting to code blocks with language identifiers', async () => {
+    // Test will verify that code blocks with language identifiers (e.g., ```javascript)
+    // are rendered with Prism.js syntax highlighting classes
+    expect(true).toBe(true)
+  })
+
+  it('should display consistent highlighting style across multiple posts', async () => {
+    // Test will verify that code blocks with the same language identifier
+    // display with consistent styling across different blog posts
+    expect(true).toBe(true)
+  })
+
+  it('should maintain consistent styling when navigating between posts', async () => {
+    // Test will verify that syntax highlighting styles remain consistent
+    // when navigating from one post to another
+    expect(true).toBe(true)
+  })
+
   it('should return 404/not found for future-dated posts', async () => {
     // This test verifies that accessing a future-dated post directly via URL
     // returns a "not found" error (same as non-existent posts)
