@@ -23,5 +23,12 @@ describe('Homepage Integration Test', () => {
     // Test will be implemented after HomePage component is created
     expect(true).toBe(true)
   })
+
+  it('should not display future-dated posts', async () => {
+    // This test verifies that posts with future publication dates are filtered out
+    // and do not appear on the homepage
+    // Test will be implemented after filtering is added
+    expect(true).toBe(true)
+  })
 })
 

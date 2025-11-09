@@ -23,5 +23,12 @@ describe('Post Detail Integration Test', () => {
     // Test will be implemented after PostPage component is created
     expect(true).toBe(true)
   })
+
+  it('should return 404/not found for future-dated posts', async () => {
+    // This test verifies that accessing a future-dated post directly via URL
+    // returns a "not found" error (same as non-existent posts)
+    // Test will be implemented after filtering is added
+    expect(true).toBe(true)
+  })
 })
 

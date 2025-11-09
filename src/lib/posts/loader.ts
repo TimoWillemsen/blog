@@ -4,6 +4,7 @@ import { generateSlug } from './slug'
 import { shouldIgnoreFile } from './scanner'
 import { handleError } from '../errors/handlers'
 import { sortPostsByDate } from './sorter'
+import { filterPublishedPosts } from './filter'
 
 /**
  * PostLoader service interface
@@ -119,8 +120,11 @@ class PostLoaderImpl implements PostLoader {
         }
       }
 
+      // Filter out future-dated posts before sorting
+      const publishedPosts = filterPublishedPosts(posts)
+
       // Sort by publication date (newest first)
-      const sortedPosts = sortPostsByDate(posts, 'desc')
+      const sortedPosts = sortPostsByDate(publishedPosts, 'desc')
       return sortedPosts
     } catch (error) {
       handleError(error, 'loadAllPosts')
