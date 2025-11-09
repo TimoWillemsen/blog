@@ -3,6 +3,8 @@
 Auto-generated from all feature plans. Last updated: 2025-11-08
 
 ## Active Technologies
+- TypeScript 5.2.2, React 18.2.0 + React Router DOM 6.20.0, marked 17.0.0, gray-matter 4.0.3, Vite 5.0.8 (002-about-me)
+- Markdown file in `src/content/about.md` (similar to blog posts in `src/content/posts/`) (002-about-me)
 
 - TypeScript/JavaScript (ES2020+) + Vite (build tool), Tailwind CSS (styling), ShadCN UI (components), markdown parser (e.g., marked, remark, or markdown-it) (001-blog-app)
 
@@ -22,6 +24,7 @@ npm test && npm run lint
 TypeScript/JavaScript (ES2020+): Follow standard conventions
 
 ## Recent Changes
+- 002-about-me: Added TypeScript 5.2.2, React 18.2.0 + React Router DOM 6.20.0, marked 17.0.0, gray-matter 4.0.3, Vite 5.0.8
 
 - 001-blog-app: Added TypeScript/JavaScript (ES2020+) + Vite (build tool), Tailwind CSS (styling), ShadCN UI (components), markdown parser (e.g., marked, remark, or markdown-it)
 
