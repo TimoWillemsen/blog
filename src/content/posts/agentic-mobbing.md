@@ -3,6 +3,7 @@ title: "Agentic Mobbing: When AI Drives and Teams Navigate"
 date: "2025-11-15"
 author: "Timo Willemsen"
 excerpt: "Exploring a new collaborative development pattern where AI agents take the driver's seat and human teams act as navigators, combining the best of both worlds."
+tags: ["ai", "collaboration"]
 ---
 
 In traditional mob programming, developers take turns at the keyboard while the rest of the team navigates. They observe, discuss, and guide. But what happens when we flip the roles? What if the AI agent becomes the driver, and the entire team becomes the navigator?

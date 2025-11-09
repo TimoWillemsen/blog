@@ -3,6 +3,7 @@ title: "Building a Blog with Specify: From Constitution to Code"
 date: "2025-11-08"
 author: "Timo Willemsen"
 excerpt: "A journey through building a modern blog application using Specify, from defining project principles to a fully functional markdown-based blog."
+tags: ["specify", "development"]
 ---
 
 I recently wanted to build a simple blog application. Instead of jumping straight into code, I decided to try **Specify**—a structured approach to software development that focuses on planning, documentation, and clear principles before you start coding. This post is about the process, not just what I built.

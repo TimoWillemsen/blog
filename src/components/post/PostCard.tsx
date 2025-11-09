@@ -1,14 +1,17 @@
 import { Link } from 'react-router-dom'
 import type { BlogPost } from '../../lib/posts/types'
+import { TagList } from './TagList'
 
 interface PostCardProps {
   post: BlogPost
+  onTagClick?: (tag: string) => void
+  activeTag?: string | null
 }
 
 /**
  * Display a single post preview in the list
  */
-export function PostCard({ post }: PostCardProps) {
+export function PostCard({ post, onTagClick, activeTag }: PostCardProps) {
   const formattedDate = new Date(post.publicationDate).toLocaleDateString('en-US', {
     year: 'numeric',
     month: 'long',
@@ -50,6 +53,11 @@ export function PostCard({ post }: PostCardProps) {
           <p className="text-sm text-[#6b6b6b] line-clamp-2 leading-relaxed">{post.excerpt}</p>
         ) : null}
       </Link>
+      {post.tags && post.tags.length > 0 && (
+        <div className="mt-2" onClick={(e) => e.stopPropagation()}>
+          <TagList tags={post.tags} onTagClick={onTagClick} activeTag={activeTag} />
+        </div>
+      )}
     </article>
   )
 }
