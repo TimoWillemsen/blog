@@ -1,16 +1,34 @@
 ---
-title: "Building a Blog with Specify: From Constitution to Code"
+title: "Building a Blog with spec-kit: From Constitution to Code"
 date: "2025-11-08"
 author: "Timo Willemsen"
-excerpt: "A journey through building a modern blog application using Specify, from defining project principles to a fully functional markdown-based blog."
-tags: ["specify", "development"]
+excerpt: "A journey through building a modern blog application using spec-kit, from defining project principles to a fully functional markdown-based blog."
+tags: ["spec-kit", "development"]
 ---
 
-I recently wanted to build a simple blog application. Instead of jumping straight into code, I decided to try **Specify**—a structured approach to software development that focuses on planning, documentation, and clear principles before you start coding. This post is about the process, not just what I built.
+I wanted to try **[spec-kit](https://github.com/github/spec-kit)**, a structured approach to software development that focuses on planning, documentation, and clear principles before you start coding. To give it a real test, I decided to build a simple blog application using the spec-kit workflow. This blog you're reading right now is that application.
 
-## The Specify Workflow
+## Installing spec-kit
 
-Specify follows a structured workflow that takes you from initial concept to implementation. Each step builds on the previous one, so you have a solid foundation before writing any code.
+Before getting started, you'll need to install spec-kit. The recommended way is using `uv`, a modern Python package and environment manager:
+
+```bash
+uv tool install specify-cli --from git+https://github.com/github/spec-kit.git
+```
+
+**Adding spec-kit to your project:**
+
+Once installed, navigate to your project directory and initialize spec-kit:
+
+```bash
+specify init .
+```
+
+This sets up spec-kit configuration and assets in your project. The initialization process will prompt you to specify which AI coding assistant you're using (e.g., Claude Code, GitHub Copilot, or Gemini CLI).
+
+## The spec-kit Workflow
+
+spec-kit follows a structured workflow that takes you from initial concept to implementation. Each step builds on the previous one, so you have a solid foundation before writing any code.
 
 ## Step 1: Establishing Principles
 
@@ -32,9 +50,9 @@ With principles in place, I moved to specification:
 /speckit.specify Build a simple blog application for Timo Willemsen. The blog will feature stories and insights about engineering management at RTL, with a focus on AI-driven productivity improvements.
 ```
 
-This generated a detailed feature specification document. During the specification process, I realized I wanted markdown file-based content management instead of a full authoring interface. I just clarified this, and Specify updated the specification.
+This generated a detailed feature specification document. During the specification process, I realized I wanted markdown file-based content management instead of a full authoring interface. I just clarified this, and spec-kit updated the specification.
 
-The specification process helped me think through user stories, identify key entities and their relationships, and define success criteria upfront. The spec document became my contract—every feature I built had to satisfy these requirements.
+The specification process helped me think through user stories, identify key entities and their relationships, and define success criteria upfront. The spec document became my contract: every feature I built had to satisfy these requirements.
 
 ## Step 3: Implementation Planning
 
@@ -44,11 +62,11 @@ Next, I created the implementation plan:
 /speckit.plan The blog uses Vite, Tailwind and ShadCN. Use minimal dependencies, no database, fully stateless from markdown files.
 ```
 
-This is where Specify's constitution checking was useful. The plan command analyzed each technology choice against the constitution, verified alignment with my principles, and generated a structured project layout. The planning phase showed me potential conflicts, missing considerations like accessibility and performance, and dependencies between components.
+This is where spec-kit's constitution checking was useful. The plan command analyzed each technology choice against the constitution, verified alignment with my principles, and generated a structured project layout. The planning phase showed me potential conflicts, missing considerations like accessibility and performance, and dependencies between components.
 
 ## Step 4: Research & Design
 
-Before implementation, Specify automatically generated supporting documents:
+Before implementation, spec-kit automatically generated supporting documents:
 
 - **`research.md`** - Technology decisions with rationale
 - **`data-model.md`** - Data structures and relationships
@@ -76,11 +94,11 @@ Finally, I started implementation:
 /speckit.implement
 ```
 
-This command guided me through the implementation phases. At each step, it referenced the relevant parts of the specification, checked that implementations matched the contracts, and suggested next steps based on dependencies. The implementation process felt different because I wasn't making decisions on the fly—every component had a clear contract to follow, and I could focus on writing code rather than designing.
+This command guided me through the implementation phases. At each step, it referenced the relevant parts of the specification, checked that implementations matched the contracts, and suggested next steps based on dependencies. The implementation process felt different because I wasn't making decisions on the fly. Every component had a clear contract to follow, and I could focus on writing code rather than designing.
 
 ### Iterations During Implementation
 
-During implementation, I discovered bugs and made design improvements. This is where an important aspect of Specify's workflow became clear: **modifying the spec and plan during implementation is expected and normal**. The workflow is iterative, not rigid.
+During implementation, I discovered bugs and made design improvements. This is where an important aspect of spec-kit's workflow became clear: **modifying the spec and plan during implementation is expected and normal**. The workflow is iterative, not rigid.
 
 When I found issues or wanted to make changes, the workflow looked like this:
 
@@ -105,31 +123,31 @@ For example, when I discovered that the `gray-matter` library (used for parsing 
 4. Implement the fix
 5. Verify it works
 
-The same process applied to layout changes—I would update the spec with new design requirements, update component contracts with styling requirements, then implement.
+The same process applied to layout changes: I would update the spec with new design requirements, update component contracts with styling requirements, then implement.
 
-**Important**: The spec and plan are living documents. They evolve as you learn more during implementation. Modifying them during implementation is not a failure of the process—it's the process working as intended. You learn things during implementation that you couldn't know upfront. The value is in documenting those learnings and keeping everything in sync.
+**Important**: The spec and plan are living documents. They evolve as you learn more during implementation. Modifying them during implementation is not a failure of the process. It's the process working as intended. You learn things during implementation that you couldn't know upfront. The value is in documenting those learnings and keeping everything in sync.
 
 ## What Made This Process Different
 
-Traditional development often goes: idea → code → refactor → document. Specify flips this: idea → principles → spec → plan → research → tasks → code.
+Traditional development often goes: idea → code → refactor → document. spec-kit flips this: idea → principles → spec → plan → research → tasks → code.
 
 The key differences were that decisions were intentional and evaluated against principles, the upfront work prevented architectural mistakes, components had defined interfaces before implementation, and documentation was built into the process rather than being an afterthought.
 
 ## The Value of Structure
 
-The Specify workflow might seem like overhead, but it actually saves time. Clear contracts mean fewer integration issues and less debugging. There's no decision paralysis during coding, principles guide every line for better code quality, and everything is documented and structured for easier maintenance.
+The spec-kit workflow might seem like overhead, but it actually saves time. Clear contracts mean fewer integration issues and less debugging. There's no decision paralysis during coding, principles guide every line for better code quality, and everything is documented and structured for easier maintenance.
 
 ## Lessons from the Process
 
-Start with principles—they make every subsequent decision easier. Specify before planning because understanding what you're building is crucial. Plan before coding to validate your approach. Document as you go since it's easier than retrofitting later. Trust the process—the structure guides you to better outcomes.
+Start with principles. They make every subsequent decision easier. Use spec-kit before planning because understanding what you're building is crucial. Plan before coding to validate your approach. Document as you go since it's easier than retrofitting later. Trust the process. The structure guides you to better outcomes.
 
 
 ## Conclusion
 
-Using Specify resulted in a well-structured, documented project. The process felt slower at first, but the upfront investment paid off with no architectural rewrites, a clear understanding of what I was building, helpful documentation, and code that follows consistent patterns.
+Using spec-kit resulted in a well-structured, documented project. The process felt slower at first, but the upfront investment paid off with no architectural rewrites, a clear understanding of what I was building, helpful documentation, and code that follows consistent patterns.
 
-The blog application I built is solid, and the process I followed ensures it will be maintainable and extensible. The value of Specify lies in how you build, not just what you build. And as I discovered, that value extends to iterations and changes too—the structured approach keeps everything intentional, even when fixing bugs or improving the design.
+The blog application I built is solid, and the process I followed ensures it will be maintainable and extensible. The value of spec-kit lies in how you build, not just what you build. And as I discovered, that value extends to iterations and changes too. The structured approach keeps everything intentional, even when fixing bugs or improving the design.
 
 ---
 
-*The Specify workflow documentation for this project is available in the `.specify/` directory, showing the complete journey from constitution to implementation.*
+*The spec-kit workflow documentation for this project is available in the `specs/` directory, showing the complete journey from constitution to implementation.*
